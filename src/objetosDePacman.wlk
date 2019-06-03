@@ -9,9 +9,9 @@ class Fantasma {
 
 }
 
-//object fondoCerradoIz{
-//	method image(){
-//		return "fondoConMargenIzquierdo.png"
-//	}
-//	method  nombre(){ return "fondoCerradoIz"}
-//} 
+object fondoCerradoIz{
+	method image(){
+		return "fondoConMargenIzquierdo.png"
+	}
+	method  nombre(){ return "fondoCerradoIz"}
+} 

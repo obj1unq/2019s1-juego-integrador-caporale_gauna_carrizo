@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><projectDescription>
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
 	<name>2019s1-juego-integrador-caporale_gauna_carrizo</name>
-	<comment/>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -31,4 +32,41 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.uqbar.project.wollok.wollokNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>assets/cereza.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/cereza.png</location>
+		</link>
+		<link>
+			<name>assets/fantasmaAmarillo.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/fantasmaAmarillo.png</location>
+		</link>
+		<link>
+			<name>assets/fantasmaRojo.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/fantasmaRojo.png</location>
+		</link>
+		<link>
+			<name>assets/fantasmaVerde.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/fantasmaVerde.png</location>
+		</link>
+		<link>
+			<name>assets/fantasmaVioleta.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/fantasmaVioleta.png</location>
+		</link>
+		<link>
+			<name>assets/pacmanBocaAbierta.jpg</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/pacmanBocaAbierta.jpg</location>
+		</link>
+		<link>
+			<name>assets/pera.png</name>
+			<type>1</type>
+			<location>C:/Users/Jorge/Desktop/imagenes modificadas/pera.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
