@@ -1,40 +1,30 @@
 import wollok.game.*
 import objetosDePacman.*
+import fantasmas.*
 
 program gameW {
-//	CONFIG	
+	
+  // CONFIG	
+  
 	game.title("WollokPac")
 	game.height(10)
-	game.width(10)
-	game.ground("fondo.png")
-// Fantasmas
-	var verde = new Fantasma()
-	verde.image("fantasmaVerde.png")	
-	verde.nombre("nombre")
-	verde.position(game.center())
-	const amarillo = new Fantasma()
-	amarillo.image("fantasmaAmarillo.png")
-	amarillo.nombre("amarillo")
-	const violeta = new Fantasma()
-	violeta.image("fantasmaVioleta.png")	
-	violeta.position(game.at(5,1))
-	violeta.nombre("violeta")
-	const rojo = new Fantasma() 
-	rojo.image("fantasmaRojo.png")	
-	rojo.nombre("rojo")
+	game.width(14)
+	game.ground("fondoNegro.png")
+	
+  // FANTASMAS 
+
+	var verde = new Fantasma(image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(2,3) )
+    var amarillo = new Fantasma(image = "fantasmaAmarilLo.png", nombre = "Fantasma Amarrilo", position = game.at(5,6))
+	var violeta = new Fantasma(image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
+	var rojo = new Fantasma(image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
+	
+	
 	//VISUALES
-	game.addVisualCharacterIn(rojo, game.at(5,5))
-	game.addVisualCharacter(violeta)
-	game.addVisualCharacterIn(amarillo, game.origin())
+	game.addVisual(rojo)
+	game.addVisual(violeta)
+	game.addVisual(amarillo)
 	game.addVisual(verde)
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,0))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,1))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,2))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,3))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,5))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,6))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,7))
-	game.addVisualCharacterIn(fondoCerradoIz, game.at(9,8))
+	
 
 	game.start()
 }
