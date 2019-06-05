@@ -20,22 +20,14 @@ program gameW {
 	var violeta = new Fantasma(image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
 	var rojo = new Fantasma(image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
 	
-    const fantasmas = [verde, amarillo, violeta, rojo]
-    
-     fantasmas.forEach{fantasma => 
-		game.addVisual(fantasma)
-		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
-	}
-	
+
 	//Comidas
 	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
 	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
 	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
 	 var pera2= new Pera (image= "pera.png",position= game.at(5,2)) 
-	 
-	 const comidas = [cereza1,cereza2,pera1,pera2]   
-    
-  
+	
+	
     //TECLADO 
     
     keyboard.up().onPressDo { pacman.position(pacman.position().up(1)) pacman.image("pacmanBocaArriba.png") }
@@ -54,6 +46,18 @@ program gameW {
 	game.addVisual(pera2)
 	game.addVisual(cereza2)
 	
-
+	// Lista de comida
+	 const comidas = [cereza1,cereza2,pera1,pera2]
+	// Al chocar con una comida el pacman suma sus puntos y la desaparece 
+	 comidas.forEach{comida =>
+	 	game.whenCollideDo(comida, {pacman => pacman.comer(comida)})
+	 }
+  
+    const fantasmas = [verde, amarillo, violeta, rojo]
+    
+     fantasmas.forEach{fantasma =>
+		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
+	}
+	
 	game.start()
 }
