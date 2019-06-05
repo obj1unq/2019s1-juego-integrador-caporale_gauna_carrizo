@@ -2,6 +2,7 @@ import wollok.game.*
 import objetosDePacman.*
 import fantasmas.*
 import pacman.*
+import comidas.*
 
 program gameW {
 	
@@ -25,7 +26,12 @@ program gameW {
 		game.addVisual(fantasma)
 		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
 	}
-    
+	
+	//Comidas
+	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
+	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
+	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
+	 var pera2= new Pera (image= "pera.png",position= game.at(5,2))    
     
     //TECLADO 
     
@@ -40,6 +46,10 @@ program gameW {
 	game.addVisual(amarillo)
 	game.addVisual(verde)
 	game.addVisual(pacman)
+	game.addVisual(pera1)
+	game.addVisual(cereza1)
+	game.addVisual(pera2)
+	game.addVisual(cereza2)
 	
 
 	game.start()
