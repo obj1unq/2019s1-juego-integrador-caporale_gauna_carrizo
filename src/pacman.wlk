@@ -2,12 +2,17 @@ import wollok.game.*
 import fantasmas.*
 
 object pacman {
-	var image = "pacman.png"
-	var position = game.origin()
+	var property image = "pacman.png"
+	var property position = game.origin()
 	var vidas = 3
 
 	method perderVida() {
-		vidas--
+		vidas-= 1
 		position = game.origin()	
+	}
+	
+	method juegoTerminado(){
+		
+		return vidas == 0
 	}
 }

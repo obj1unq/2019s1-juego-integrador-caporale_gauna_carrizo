@@ -1,6 +1,7 @@
 import wollok.game.*
 import objetosDePacman.*
 import fantasmas.*
+import pacman.*
 
 program gameW {
 	
@@ -18,12 +19,27 @@ program gameW {
 	var violeta = new Fantasma(image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
 	var rojo = new Fantasma(image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
 	
-	
+    const fantasmas = [verde, amarillo, violeta, rojo]
+    
+     fantasmas.forEach{fantasma => 
+		game.addVisual(fantasma)
+		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
+	}
+    
+    
+    //TECLADO 
+    
+    keyboard.up().onPressDo { pacman.position(pacman.position().up(1)) }
+	keyboard.down().onPressDo { pacman.position(pacman.position().down(1)) }
+	keyboard.left().onPressDo { pacman.position(pacman.position().left(1)) }
+	keyboard.right().onPressDo { pacman.position(pacman.position().right(1)) }
+
 	//VISUALES
 	game.addVisual(rojo)
 	game.addVisual(violeta)
 	game.addVisual(amarillo)
 	game.addVisual(verde)
+	game.addVisual(pacman)
 	
 
 	game.start()
