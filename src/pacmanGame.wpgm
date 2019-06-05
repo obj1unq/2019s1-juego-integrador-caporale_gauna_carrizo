@@ -35,27 +35,28 @@ program gameW {
 	keyboard.left().onPressDo { pacman.position(pacman.position().left(1)) pacman.image("pacmanIzquierda.png") }
 	keyboard.right().onPressDo { pacman.position(pacman.position().right(1)) pacman.image("pacman.png")}
 
-	//VISUALES
-	game.addVisual(rojo)
-	game.addVisual(violeta)
-	game.addVisual(amarillo)
-	game.addVisual(verde)
+	//SE AGREGA EL PACMAN AL TABLERO
 	game.addVisual(pacman)
-	game.addVisual(pera1)
-	game.addVisual(cereza1)
-	game.addVisual(pera2)
-	game.addVisual(cereza2)
 	
-	// Lista de comida
+	// LISTA DE COMIDAS
 	 const comidas = [cereza1,cereza2,pera1,pera2]
-	// Al chocar con una comida el pacman suma sus puntos y la desaparece 
+	/*
+	 *  Se agregan las comidas al tablero
+	 *  Cuando el pacman toca una comida la come 
+	*/
 	 comidas.forEach{comida =>
+	 	game.addVisual(comida)
 	 	game.whenCollideDo(comida, {pacman => pacman.comer(comida)})
 	 }
-  
+	 
+	//LISTA DE FANTASMAS
     const fantasmas = [verde, amarillo, violeta, rojo]
-    
+    /*
+	 *  Se agregan los fantasmas al tablero
+	 *  Cuando el pacman toca un fantasma pierde una vida 
+	*/
      fantasmas.forEach{fantasma =>
+     	game.addVisual(fantasma)
 		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
 	}
 	
