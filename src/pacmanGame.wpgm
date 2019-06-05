@@ -31,14 +31,17 @@ program gameW {
 	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
 	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
 	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
-	 var pera2= new Pera (image= "pera.png",position= game.at(5,2))    
+	 var pera2= new Pera (image= "pera.png",position= game.at(5,2)) 
+	 
+	 const comidas = [cereza1,cereza2,pera1,pera2]   
     
+  
     //TECLADO 
     
-    keyboard.up().onPressDo { pacman.position(pacman.position().up(1)) }
-	keyboard.down().onPressDo { pacman.position(pacman.position().down(1)) }
-	keyboard.left().onPressDo { pacman.position(pacman.position().left(1)) }
-	keyboard.right().onPressDo { pacman.position(pacman.position().right(1)) }
+    keyboard.up().onPressDo { pacman.position(pacman.position().up(1)) pacman.image("pacmanBocaArriba.png") }
+	keyboard.down().onPressDo { pacman.position(pacman.position().down(1)) pacman.image("pacmanBocaAbajo.png") }
+	keyboard.left().onPressDo { pacman.position(pacman.position().left(1)) pacman.image("pacmanIzquierda.png") }
+	keyboard.right().onPressDo { pacman.position(pacman.position().right(1)) pacman.image("pacman.png")}
 
 	//VISUALES
 	game.addVisual(rojo)
