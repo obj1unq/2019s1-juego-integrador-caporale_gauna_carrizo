@@ -7,12 +7,10 @@ import comidas.*
 program gameW {
 	
   // CONFIG	
-  
 	game.title("WollokPac")
 	game.height(10)
 	game.width(14)
 	game.ground("fondoNegro.png")
-	
   // FANTASMASS 
 
 	var verde = new Fantasma(image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(2,3) )

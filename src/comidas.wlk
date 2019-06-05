@@ -12,7 +12,6 @@ class Comidas{
 	}
 	
 }
-
 class Cereza inherits Comidas{
 	const property puntosAlSerComida=200
 	

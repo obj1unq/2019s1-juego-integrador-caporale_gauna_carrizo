@@ -9,7 +9,6 @@ object pacman {
 
 	method perderVida() {
 		vidas-= 1
-		
 		position = game.origin()	
 	}
 	
