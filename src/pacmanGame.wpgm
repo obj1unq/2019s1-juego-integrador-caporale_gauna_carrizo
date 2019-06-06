@@ -55,7 +55,9 @@ program gameW {
 	*/
      fantasmas.forEach{fantasma =>
      	game.addVisual(fantasma)
-		game.whenCollideDo(fantasma, { pacman => pacman.perderVida()})
+		game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
+		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseA(pacman)})
+			
 	}
 	
 	game.start()

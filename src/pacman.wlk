@@ -9,7 +9,23 @@ object pacman {
 
 	method perderVida() {
 		vidas-= 1
-		position = game.origin()	
+		
+	}
+	
+	method resetPosition(){
+		
+		position = game.origin()
+	}
+	
+	method chocarCon(fantasma){
+		self.perderVida()
+		self.resetPosition()
+		fantasma.resetPosition()
+		
+		if(self.juegoTerminado()){
+			
+			game.stop()
+		}
 	}
 	
 	method juegoTerminado(){
