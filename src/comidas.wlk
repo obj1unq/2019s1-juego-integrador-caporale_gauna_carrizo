@@ -11,6 +11,8 @@ class Comidas{
 		game.removeVisual(self)
 	}
 	
+	method chocarCon(algo){}
+	
 }
 class Cereza inherits Comidas{
 	const property puntosAlSerComida=200

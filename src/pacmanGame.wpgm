@@ -7,7 +7,7 @@ import comidas.*
 program gameW {
 	
   // CONFIG	
-	game.title("WollokPac")
+	game.title("PacManGame")
 	game.height(10)
 	game.width(14)
 	game.ground("fondoNegro.png")

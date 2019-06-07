@@ -39,4 +39,12 @@ class Fantasma {
 		position = previousPosition 
 	}
     
+    method comer(comida){}
+    method convertirAComida(){
+    	//cambie la imagen a violeta
+    	//hulla del pacman
+    	//si choca con el pacman ; le sume puntos al pacman y desaparesca la imagen (se puede hacer 
+    	// que quede la imagen de los ojitos y que vuelva al centro y ahi cambie la imagen a su color original)
+    	
+    }
 }
