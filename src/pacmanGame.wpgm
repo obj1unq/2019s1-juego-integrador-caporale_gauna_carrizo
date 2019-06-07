@@ -28,10 +28,10 @@ program gameW {
 	
     //TECLADO 
     
-    keyboard.up().onPressDo { pacman.position(pacman.position().up(1)) pacman.image("pacmanBocaArriba.png") }
-	keyboard.down().onPressDo { pacman.position(pacman.position().down(1)) pacman.image("pacmanBocaAbajo.png") }
-	keyboard.left().onPressDo { pacman.position(pacman.position().left(1)) pacman.image("pacmanIzquierda.png") }
-	keyboard.right().onPressDo { pacman.position(pacman.position().right(1)) pacman.image("pacman.png")}
+    keyboard.up().onPressDo { pacman.moverArriba() }
+	keyboard.down().onPressDo { pacman.moverAbajo() }
+	keyboard.left().onPressDo { pacman.moverIzquierda() }
+	keyboard.right().onPressDo { pacman.moverDerecha() }
 
 	//SE AGREGA EL PACMAN AL TABLERO
 	game.addVisual(pacman)
@@ -57,7 +57,6 @@ program gameW {
      	game.addVisual(fantasma)
 		game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
 		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseA(pacman)})
-			
 	}
 	
 	game.start()
