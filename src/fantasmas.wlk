@@ -13,6 +13,9 @@ class Fantasma {
 		
 		position = game.center()
 	}
+	method esTraspasable() {
+		return true
+	}
 	
 	method acercarseA(pacman){
 		

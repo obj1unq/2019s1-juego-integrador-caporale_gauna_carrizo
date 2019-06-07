@@ -10,7 +10,9 @@ class Comidas{
 	method desaparecer(){
 		game.removeVisual(self)
 	}
-	
+	method esTraspasable() {
+		return true
+	}
 	method chocarCon(algo){}
 	
 }

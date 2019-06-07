@@ -65,5 +65,8 @@ object pacman {
 		puntos += comida.puntosAlSerComida()
 		comida.desaparecer()
 	}
+	method objetosEnLaPosicion(_posicion){
+		game.getObjectsIn(_posicion)
+	}
 
 }
