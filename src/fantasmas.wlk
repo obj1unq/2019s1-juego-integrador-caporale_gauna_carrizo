@@ -8,6 +8,7 @@ class Fantasma {
 	var property nombre
 	var property position
 	var previousPosition = position
+	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
 	method resetPosition(){
 		
@@ -16,6 +17,16 @@ class Fantasma {
 	method esTraspasable() {
 		return true
 	}
+	
+	// se agrega metodo para identificar acciones del fantasma segun si es "bueno" o "malo"
+	
+	method acercarseOAlejarse(pacman){
+		
+		if(fantasmaMalo){ self.acercarseA(pacman)}
+		else {self.huirDe(pacman)}
+		}
+		
+	
 	
 	method acercarseA(pacman){
 		
@@ -32,6 +43,25 @@ class Fantasma {
 		position = game.at(newX, newY)
 		
 	}
+
+	
+	// se agrega metodo huir de Pacman
+	
+	method huirDe(pacman){
+		var otraPosicion = pacman.position()
+		var newX = position.x() + if(otraPosicion.x() > position.x()) -1 else 1
+		var newY = position.y() +  if(otraPosicion.y() > position.y()) -1 else 1
+		
+		// evita quedar fuera del tablero
+		newX = newX.max(0).min(game.width() - 1)
+		newY = newY.max(0).min(game.height() - 1)
+		
+		previousPosition = position
+		position = game.at(newX, newY)
+		
+		
+	}
+
 	
 	method chocarCon(otro){
 		
@@ -50,4 +80,5 @@ class Fantasma {
     	// que quede la imagen de los ojitos y que vuelva al centro y ahi cambie la imagen a su color original)
     	
     }
+    
 }

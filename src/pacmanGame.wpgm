@@ -53,11 +53,25 @@ program gameW {
 	 *  Se agregan los fantasmas al tablero
 	 *  Cuando el pacman toca un fantasma pierde una vida 
 	*/
+	/*se modifica en game.onTick, la funcion acercarseA(pacman) pasa a acercarseOAlejarseDe(pacman) */
      fantasmas.forEach{fantasma =>
      	game.addVisual(fantasma)
-		game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
-		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseA(pacman)})
+		//game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
+		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseOAlejarse(pacman)})
 	}
+	
+	// se agregan 2 cereaza nuevas para probar la funcion acercarseOAlejarseDe(pacman), igualmente
+	// no funciona... a parte tambien falta poner durante que tiempo los fantasmas huyen de pacman..
+	var cereza3= new Cereza(image="cereza.png",position= game.at(1,10))
+	 var cereza4= new Cereza(image="cereza.png",position= game.at(10,10))
+	 const cerezass = [cereza1,cereza2]
+     cerezass.forEach{cereza =>
+	 	game.whenCollideDo(cereza, {pacman => pacman.comer(comida)
+	 										 fantasmas.forEach{ fantasma=> fantasma.fantasmaMalo(true)}
+	 	})
+	 }
+	 
+	
 	
 	game.start()
 }
