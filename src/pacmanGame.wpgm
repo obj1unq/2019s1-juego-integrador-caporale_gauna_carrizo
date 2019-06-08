@@ -1,8 +1,8 @@
 import wollok.game.*
-import objetosDePacman.*
 import fantasmas.*
 import pacman.*
 import comidas.*
+import bolitas.*
 
 program gameW {
 	
@@ -33,10 +33,21 @@ program gameW {
 	keyboard.left().onPressDo { pacman.moverIzquierda() }
 	keyboard.right().onPressDo { pacman.moverDerecha() }
 
+    //SE CREA UNA NUEVA BOLA MAGICA 
+
+    var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8), puntosAlSerComidas = 0)
+
 	//SE AGREGA EL PACMAN AL TABLERO
+	
 	game.addVisual(pacman)
 	
+	//SE AGREGA BOLA MAGICA AL TABLERO
+	
+	game.addVisual(bolaMagica) 
+	
+	
 	// LISTA DE COMIDAS
+	
 	 const comidas = [cereza1,cereza2,pera1,pera2]
 	/*
 	 *  Se agregan las comidas al tablero
@@ -48,7 +59,14 @@ program gameW {
 	 }
 	 
 	//LISTA DE FANTASMAS
+	
     const fantasmas = [verde, amarillo, violeta, rojo]
+    
+    /*Pacman come bola magica, y tranforma a todos los fantasmas en fantasmas azules */
+	
+	game.whenCollideDo(bolaMagica, {pacman => pacman.comeBolitaMagica(bolaMagica,fantasmas)})
+	
+	
     /*
 	 *  Se agregan los fantasmas al tablero
 	 *  Cuando el pacman toca un fantasma pierde una vida 
@@ -56,21 +74,22 @@ program gameW {
 	/*se modifica en game.onTick, la funcion acercarseA(pacman) pasa a acercarseOAlejarseDe(pacman) */
      fantasmas.forEach{fantasma =>
      	game.addVisual(fantasma)
-		//game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
+		game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
 		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseOAlejarse(pacman)})
 	}
 	
 	// se agregan 2 cereaza nuevas para probar la funcion acercarseOAlejarseDe(pacman), igualmente
 	// no funciona... a parte tambien falta poner durante que tiempo los fantasmas huyen de pacman..
-	var cereza3= new Cereza(image="cereza.png",position= game.at(1,10))
-	 var cereza4= new Cereza(image="cereza.png",position= game.at(10,10))
+	/*var cereza3= new Cereza(image="bola-de-cristal.png",position= game.at(1,4))
+	 var cereza4= new Cereza(image="bola-de-cristal.png",position= game.at(3,2))
 	 const cerezass = [cereza1,cereza2]
-     cerezass.forEach{cereza =>
+     cerezass.forEach{cereza => 
+     	game.addVisual(cereza)
 	 	game.whenCollideDo(cereza, {pacman => pacman.comer(comida)
 	 										 fantasmas.forEach{ fantasma=> fantasma.fantasmaMalo(true)}
 	 	})
 	 }
-	 
+	 */
 	
 	
 	game.start()

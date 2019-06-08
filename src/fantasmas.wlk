@@ -23,7 +23,10 @@ class Fantasma {
 	method acercarseOAlejarse(pacman){
 		
 		if(fantasmaMalo){ self.acercarseA(pacman)}
-		else {self.huirDe(pacman)}
+		else {
+			
+			self.huirDe(pacman)
+		}
 		}
 		
 	

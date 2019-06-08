@@ -1,5 +1,7 @@
 import wollok.game.*
 import fantasmas.*
+import comidas.*
+import bolitas.*
 
 object pacman {
 	var property puntos = 0
@@ -67,6 +69,15 @@ object pacman {
 	}
 	method objetosEnLaPosicion(_posicion){
 		game.getObjectsIn(_posicion)
+	}
+	
+	method comeBolitaMagica(bolaMagica, fantasmas){
+		
+		bolaMagica.desaparecer()
+		fantasmas.forEach({fantasma => fantasma.image("fantasmaAzul.png")
+			 fantasma.fantasmaMalo(false)
+		})
+		
 	}
 
 }
