@@ -10,6 +10,8 @@ class Fantasma {
 	var previousPosition = position
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
+	method transformar() { fantasmaMalo = not fantasmaMalo }
+	
 	method resetPosition(){
 		
 		position = game.center()
