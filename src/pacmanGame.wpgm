@@ -26,7 +26,7 @@ program gameW {
 	 var pera2= new Pera (image= "pera.png",position= game.at(5,2)) 
 	
 	
-    //TECLADO 
+    //TECLADOO 
     
     keyboard.up().onPressDo { pacman.moverArriba() }
 	keyboard.down().onPressDo { pacman.moverAbajo() }
