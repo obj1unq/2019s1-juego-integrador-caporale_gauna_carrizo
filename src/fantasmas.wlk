@@ -7,7 +7,7 @@ class Fantasma {
 	var property image
 	var property nombre
 	var property position
-	var previousPosition = positions
+	var previousPosition = position
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
 	method transformar() { fantasmaMalo = not fantasmaMalo }
