@@ -33,7 +33,7 @@ program gameW {
 	keyboard.left().onPressDo { pacman.moverIzquierda() }
 	keyboard.right().onPressDo { pacman.moverDerecha() }
 
-    //SE CREA UNA NUEVA BOLA MAGICA 
+    //SE CREA UNA NUEVA BOLA MAGICAA 
 
     var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8), puntosAlSerComidas = 0)
 
