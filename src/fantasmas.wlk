@@ -43,9 +43,7 @@ class Fantasma {
 			self.huirDe(pacman)
 		}
 		}
-		
-	
-	
+	//
 	method acercarseA(pacman){
 		
 		var otraPosicion = pacman.position()

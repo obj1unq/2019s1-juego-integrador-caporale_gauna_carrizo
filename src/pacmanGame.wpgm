@@ -67,7 +67,7 @@ program gameW {
 	
 	game.whenCollideDo(bolaMagica, {pacman => pacman.comeBolitaMagica(bolaMagica,fantasmas)})
 	
-	
+	//
     /*
 	 *  Se agregan los fantasmas al tablero
 	 *  Cuando el pacman toca un fantasma pierde una vida 

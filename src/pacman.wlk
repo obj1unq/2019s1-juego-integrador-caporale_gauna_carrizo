@@ -70,12 +70,13 @@ object pacman {
 	method objetosEnLaPosicion(_posicion){
 		game.getObjectsIn(_posicion)
 	}
-	
+	//
 	method comeBolitaMagica(bolaMagica, fantasmas){
 		
 		bolaMagica.desaparecer()
 		fantasmas.forEach({fantasma => fantasma.transformarSiEsMalo()
 		})
 		
+	
 	}
 }
