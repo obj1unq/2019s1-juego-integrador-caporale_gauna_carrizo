@@ -20,10 +20,10 @@ program gameW {
 	
 
 	//Comidas
-	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
-	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
-	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
-	 var pera2= new Pera (image= "pera.png",position= game.at(5,2)) 
+	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1),puntosAlSerComida=400)
+	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6),puntosAlSerComida=400)
+	 var pera1= new Pera(image="pera.png",position= game.at(1,9),puntosAlSerComida=200)
+	 var pera2= new Pera (image= "pera.png",position= game.at(5,2),puntosAlSerComida=200) 
 	
 	
     //TECLADOO 
@@ -44,6 +44,7 @@ program gameW {
 	//SE AGREGA BOLA MAGICA AL TABLERO
 	
 	game.addVisual(bolaMagica) 
+	
 	
 	
 	// LISTA DE COMIDAS

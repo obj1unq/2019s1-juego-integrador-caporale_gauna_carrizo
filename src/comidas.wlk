@@ -18,17 +18,12 @@ class Comidas{
 	
 }
 class Cereza inherits Comidas{
-	override method puntosAlSerComida(){
-		return 400
-	}
 
 	
 }
 
 class Pera inherits Comidas{
-	override method puntosAlSerComida(){
-		return 200
-	}
+	
 	
 	
 }
