@@ -48,17 +48,32 @@ object pacman {
 		position = game.origin()
 	}
 	
-	method chocarCon(fantasma){
+method perderVidaSi(){
 		self.perderVida()
-		if (self.juegoTerminado()) {
+		if(not self.juegoTerminado()){
+			self.resetPosition()
+		}
+		else{
 			game.stop()
 		}
-		else {
-			self.resetPosition()
-			fantasma.resetPosition()
-		}
+		
 	}
 	
+	
+	
+	
+	method chocarCon(fantasma){
+		
+		if(fantasma.fantasmaMalo()){
+			self.perderVidaSi()
+		}
+		else{
+			puntos+=fantasma.puntosAlSerComido()
+			fantasma.resetPosition()
+			fantasma.transformar()
+			}
+		}
+		
 	method juegoTerminado(){
 		
 		return vidas == 0

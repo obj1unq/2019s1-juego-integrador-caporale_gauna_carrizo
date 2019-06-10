@@ -8,6 +8,7 @@ class Fantasma {
 	var property nombre
 	var property position
 	var previousPosition = position
+	var property puntosAlSerComido=200
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
 	method transformar() { 
