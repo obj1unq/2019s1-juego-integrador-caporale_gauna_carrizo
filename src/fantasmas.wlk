@@ -3,14 +3,27 @@ import pacman.*
 
 
 class Fantasma {
-
+	var property imagenOriginal
 	var property image
 	var property nombre
 	var property position
 	var previousPosition = position
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
-	method transformar() { fantasmaMalo = not fantasmaMalo }
+	method transformar() { 
+		if (self.fantasmaMalo()){
+			self.image("fantasmaAzul.png")
+			fantasmaMalo = not fantasmaMalo
+		}else {
+			self.image(imagenOriginal)
+			fantasmaMalo = not fantasmaMalo
+		}
+	}
+	method transformarSiEsMalo() {
+		if (self.fantasmaMalo()){
+			self.transformar()
+		}
+	}
 	
 	method resetPosition(){
 		

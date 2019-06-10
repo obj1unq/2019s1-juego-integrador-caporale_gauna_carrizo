@@ -74,10 +74,8 @@ object pacman {
 	method comeBolitaMagica(bolaMagica, fantasmas){
 		
 		bolaMagica.desaparecer()
-		fantasmas.forEach({fantasma => fantasma.image("fantasmaAzul.png")
-			 fantasma.fantasmaMalo(false)
+		fantasmas.forEach({fantasma => fantasma.transformarSiEsMalo()
 		})
 		
 	}
-
 }
