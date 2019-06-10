@@ -5,6 +5,7 @@ import wollok.game.*
 class Comidas{
 	var property position
 	var property image
+	const property  puntosAlSerComida
 	
 	
 	method desaparecer(){
@@ -17,11 +18,17 @@ class Comidas{
 	
 }
 class Cereza inherits Comidas{
-	const property puntosAlSerComida=200
+	override method puntosAlSerComida(){
+		return 400
+	}
+
 	
 }
 
 class Pera inherits Comidas{
-	const property  puntosAlSerComida=400
+	override method puntosAlSerComida(){
+		return 200
+	}
+	
 	
 }
