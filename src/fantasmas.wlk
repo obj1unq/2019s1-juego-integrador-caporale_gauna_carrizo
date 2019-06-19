@@ -8,7 +8,7 @@ class Fantasma {
 	var property nombre
 	var property position
 	var previousPosition = position
-	var property puntosAlSerComido=200
+	var property puntosAlSerComida=200
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
 	method transformar() { 
@@ -98,4 +98,16 @@ class Fantasma {
     	
     }
     
-}
+    method chocasteConPacman(pacman, listaFantasmas){
+    	
+    	if (self.fantasmaMalo()) {
+			pacman.perderVidaSi()
+		} else {
+			pacman.sumarPuntos(self)
+			self.resetPosition()
+			self.transformar()
+		}
+	}
+	
+    }
+    

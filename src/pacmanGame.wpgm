@@ -9,7 +9,7 @@ program gameW {
   // CONFIG	
 	game.title("PacManGame")
 	game.height(10)
-	game.width(14)
+	game.width(20)
 	game.ground("fondoNegro.png")
   // FANTASMASS 
 
@@ -20,10 +20,10 @@ program gameW {
 	
 
 	//Comidas
-	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1),puntosAlSerComida=400)
-	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6),puntosAlSerComida=400)
-	 var pera1= new Pera(image="pera.png",position= game.at(1,9),puntosAlSerComida=200)
-	 var pera2= new Pera (image= "pera.png",position= game.at(5,2),puntosAlSerComida=200) 
+	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
+	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
+	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
+	 var pera2= new Pera (image= "pera.png",position= game.at(5,2))
 	
 	
     //TECLADOO 
@@ -35,17 +35,31 @@ program gameW {
 
     //SE CREA UNA NUEVA BOLA MAGICAA 
 
-    var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8), puntosAlSerComidas = 0)
+   var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8))
 
 	//SE AGREGA EL PACMAN AL TABLERO
 	
-	game.addVisual(pacman)
 	
 	//SE AGREGA BOLA MAGICA AL TABLERO
 	
-	game.addVisual(bolaMagica) 
+	 game.addVisual(bolaMagica) 
 	
+	// AGREGAR BOLITAS
 	
+	var fila = (0..9)
+	var columna = (0..19)
+	
+	var listaPosiciones = []
+	
+	fila.forEach{f => columna.forEach{c => listaPosiciones.add(new Position(c,f))}}
+	
+	var listaBolitas = (0..199)
+	
+	listaBolitas.forEach{num =>  new Bolitas(num, listaPosiciones.get(num))}
+	
+	/*var listaDeBolitas = (0..199).map{bolita => new Bolitas(bolita)}
+	
+	listaDeBolitas.forEach{bolita => game.addVisual(bolita)}*/
 	
 	// LISTA DE COMIDAS
 	
@@ -56,16 +70,15 @@ program gameW {
 	*/
 	 comidas.forEach{comida =>
 	 	game.addVisual(comida)
-	 	game.whenCollideDo(comida, {pacman => pacman.comer(comida)})
 	 }
 	 
 	//LISTA DE FANTASMAS
 	
-    const fantasmas = [verde, amarillo, violeta, rojo]
+    const  fantasmas = [verde, amarillo, violeta, rojo]
     
     /*Pacman come bola magica, y tranforma a todos los fantasmas en fantasmas azules */
 	
-	game.whenCollideDo(bolaMagica, {pacman => pacman.comeBolitaMagica(bolaMagica,fantasmas)})
+	//game.whenCollideDo(bolaMagica, {pacman => pacman.comeBolitaMagica(bolaMagica,fantasmas)})
 	
 	//
     /*
@@ -75,7 +88,7 @@ program gameW {
 	/*se modifica en game.onTick, la funcion acercarseA(pacman) pasa a acercarseOAlejarseDe(pacman) */
      fantasmas.forEach{fantasma =>
      	game.addVisual(fantasma)
-		game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
+		// game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
 		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseOAlejarse(pacman)})
 	}
 	
@@ -93,5 +106,8 @@ program gameW {
 	 */
 	
 	
+	game.addVisual(pacman)
+ 	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
+
 	game.start()
 }

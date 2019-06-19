@@ -4,10 +4,21 @@ import comidas.*
 import bolitas.*
 
 object pacman {
+
 	var property puntos = 0
 	var property image = "pacman.png"
 	var property position = game.origin()
 	var vidas = 3
+	var property bolitasQueComio = 0
+	
+	method comerBolita(){
+		
+	  bolitasQueComio += 1
+      if( self.juegoTerminado()){
+      	
+      	game.stop()
+      }
+	}
 
 // Si no sale del tablero se mueve arriba
 	method moverArriba() {
@@ -16,6 +27,7 @@ object pacman {
 			self.image("pacmanBocaArriba.png")
 		}
 	}
+
 // Si no sale del tablero se mueve abajo
 	method moverAbajo() {
 		if (self.position().down(1).y() >= 0) {
@@ -23,13 +35,15 @@ object pacman {
 			self.image("pacmanBocaAbajo.png")
 		}
 	}
+
 // Si no sale del tablero se mueve a la derecha
 	method moverDerecha() {
 		if (self.position().right(1).x() < game.width()) {
 			self.position(self.position().right(1))
 			self.image("pacman.png")
-		}	
+		}
 	}
+
 // Si no sale del tablero se mueve a la izquierda
 	method moverIzquierda() {
 		if (self.position().left(1).x() >= 0) {
@@ -37,61 +51,52 @@ object pacman {
 			self.image("pacmanIzquierda.png")
 		}
 	}
-	
+
 	method perderVida() {
-		vidas-= 1
-		
+		vidas -= 1
 	}
-	
-	method resetPosition(){
-		
+
+	method resetPosition() {
 		position = game.origin()
 	}
-	
-method perderVidaSi(){
+
+	method perderVidaSi() {
 		self.perderVida()
-		if(not self.juegoTerminado()){
+		if (not self.juegoTerminado()) {
 			self.resetPosition()
-		}
-		else{
+		} else {
 			game.stop()
 		}
-		
 	}
-	
-	
-	
-	
-	method chocarCon(fantasma){
-		
-		if(fantasma.fantasmaMalo()){
+
+	/*method chocarCon(fantasma) {
+		if (fantasma.fantasmaMalo()) {
 			self.perderVidaSi()
-		}
-		else{
-			puntos+=fantasma.puntosAlSerComido()
+		} else {
+			puntos += fantasma.puntosAlSerComido()
 			fantasma.resetPosition()
 			fantasma.transformar()
-			}
 		}
-		
-	method juegoTerminado(){
-		
-		return vidas == 0
+	}*/
+
+	method juegoTerminado() {
+		return vidas == 0 or self.bolitasQueComio() == 200
 	}
-	method comer(comida){
+
+	method sumarPuntos(comida) {
 		puntos += comida.puntosAlSerComida()
-		comida.desaparecer()
+		
 	}
-	method objetosEnLaPosicion(_posicion){
+
+	method objetosEnLaPosicion(_posicion) {
 		game.getObjectsIn(_posicion)
 	}
+
 	//
-	method comeBolitaMagica(bolaMagica, fantasmas){
-		
+	/*method comeBolitaMagica(bolaMagica, fantasmas) {
 		bolaMagica.desaparecer()
-		fantasmas.forEach({fantasma => fantasma.transformarSiEsMalo()
-		})
-		
-	
-	}
+		fantasmas.forEach({ fantasma => fantasma.transformarSiEsMalo()})
+	}*/
+
 }
+
