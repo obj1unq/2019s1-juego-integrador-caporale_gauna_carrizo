@@ -92,6 +92,8 @@ program gameW {
 		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseOAlejarse(pacman)})
 	}
 	
+	
+	
 	// se agregan 2 cereaza nuevas para probar la funcion acercarseOAlejarseDe(pacman), igualmente
 	// no funciona... a parte tambien falta poner durante que tiempo los fantasmas huyen de pacman..
 	/*var cereza3= new Cereza(image="bola-de-cristal.png",position= game.at(1,4))

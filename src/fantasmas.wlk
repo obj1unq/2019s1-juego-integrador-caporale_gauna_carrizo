@@ -20,9 +20,12 @@ class Fantasma {
 			fantasmaMalo = not fantasmaMalo
 		}
 	}
+	
+	
 	method transformarSiEsMalo() {
 		if (self.fantasmaMalo()){
 			self.transformar()
+			self.volverDespuesDeUnTiempo()
 		}
 	}
 	
@@ -109,5 +112,23 @@ class Fantasma {
 		}
 	}
 	
+	method volverAMalos(){
+		self.image(imagenOriginal)
+		
+		
+		
+	}
+			method volverDespuesDeUnTiempo(){
+	    game.onTick(10000, "transformarseEnMalos", { 
+  self.volverAMalos()
+  game.removeTickEvent("transformarseEnMalos")
+})
+
+}
+	
+	
     }
+    
+    
+    
     
