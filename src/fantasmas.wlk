@@ -113,6 +113,7 @@ class Fantasma {
 	}
 	
 	method volverAMalos(){
+		self.fantasmaMalo(not fantasmaMalo)
 		self.image(imagenOriginal)
 		
 		
