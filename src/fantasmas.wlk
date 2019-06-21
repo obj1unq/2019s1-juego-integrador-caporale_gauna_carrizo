@@ -123,7 +123,7 @@ class Fantasma {
 		
 	}
 			method volverDespuesDeUnTiempo(){
-	    game.onTick(10000, "transformarseEnMalos", { 
+	    game.onTick(8000, "transformarseEnMalos", { 
   self.volverAMalo()
  
 })
