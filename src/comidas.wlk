@@ -107,6 +107,9 @@ class Pera inherits Comidas{
 		_pacman.sumarPuntos(self)
 		
 	}
+
+	
+	
 	
 	method puntosAlSerComida() = 90
  
