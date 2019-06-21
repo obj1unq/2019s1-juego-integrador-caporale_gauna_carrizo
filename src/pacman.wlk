@@ -64,8 +64,11 @@ object pacman {
 		self.perderVida()
 		if (not self.juegoTerminado()) {
 			self.resetPosition()
+			game.say(self,"perdiste una vida")
 		} else {
+			game.say(self,"perdiste el juego")
 			game.stop()
+			
 		}
 	}
 
