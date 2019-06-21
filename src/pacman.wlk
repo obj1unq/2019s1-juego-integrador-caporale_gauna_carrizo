@@ -2,12 +2,15 @@ import wollok.game.*
 import fantasmas.*
 import comidas.*
 import bolitas.*
+import orientacionPacman.*
 
 object pacman {
 
 	var property puntos = 0
-	var property image = "pacman.png"
-	var property position = game.origin()
+	var orientacion = arriba
+	var property image = orientacion.image()
+	//var property position = game.origin()
+	var property position = game.at(1,1)
 	var vidas = 3
 	var property bolitasQueComio = 0
 	
@@ -29,36 +32,34 @@ object pacman {
 	}
 
 // Si no sale del tablero se mueve abajo
-	method moverAbajo() {
-		if (self.position().down(1).y() >= 0) {
-			self.position(self.position().down(1))
-			self.image("pacmanBocaAbajo.png")
-		}
-	}
+	//method moverAbajo() {
+		//if (self.position().down(1).y() >= 0) {
+			//self.position(self.position().down(1))
+			//self.image("pacmanBocaAbajo.png")
+		//}
+	//}
 
 // Si no sale del tablero se mueve a la derecha
-	method moverDerecha() {
-		if (self.position().right(1).x() < game.width()) {
-			self.position(self.position().right(1))
-			self.image("pacman.png")
-		}
-	}
+	//method moverDerecha() {
+		//if (self.position().right(1).x() < game.width()) {
+			//self.position(self.position().right(1))
+			//self.image("pacman.png")
+		//}
+	//}
 
 // Si no sale del tablero se mueve a la izquierda
-	method moverIzquierda() {
-		if (self.position().left(1).x() >= 0) {
-			self.position(self.position().left(1))
-			self.image("pacmanIzquierda.png")
-		}
-	}
+	//method moverIzquierda() {
+	//	if (self.position().left(1).x() >= 0) {
+		//	self.position(self.position().left(1))
+		//	self.image("pacmanIzquierda.png")
+	//	}
+//	}
 
 	method perderVida() {
 		vidas -= 1
 	}
 
-	method resetPosition() {
-		position = game.origin()
-	}
+	
 
 	method perderVidaSi() {
 		self.perderVida()
@@ -100,6 +101,18 @@ object pacman {
 		bolaMagica.desaparecer()
 		fantasmas.forEach({ fantasma => fantasma.transformarSiEsMalo()})
 	}*/
+	
+	//prueba direcciones
+	
+	method mover(direccion){
+		orientacion=direccion
+		orientacion.mover(self)
+	}
+
+	method resetPosition() {
+		//position = game.origin()
+		position= game.at(1,1)
+	}
 
 }
 

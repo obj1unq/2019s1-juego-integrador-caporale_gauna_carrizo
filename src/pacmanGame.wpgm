@@ -3,6 +3,7 @@ import fantasmas.*
 import pacman.*
 import comidas.*
 import bolitas.*
+import orientacionPacman.*
 
 program gameW {
 	
@@ -32,21 +33,19 @@ program gameW {
 	
     //TECLADOO 
     
-    keyboard.up().onPressDo { pacman.moverArriba() }
-	keyboard.down().onPressDo { pacman.moverAbajo() }
-	keyboard.left().onPressDo { pacman.moverIzquierda() }
-	keyboard.right().onPressDo { pacman.moverDerecha() }
-
+    //keyboard.up().onPressDo { pacman.moverArriba() }
+	//keyboard.down().onPressDo { pacman.moverAbajo() }
+	//keyboard.left().onPressDo { pacman.moverIzquierda() }
+	//keyboard.right().onPressDo { pacman.moverDerecha() }
+  
+    keyboard.up().onPressDo { pacman.mover(arriba) }
+	keyboard.down().onPressDo { pacman.mover(abajo) }
+	keyboard.left().onPressDo { pacman.mover(izquierda) }
+	keyboard.right().onPressDo { pacman.mover(derecha) }
+  
     //SE CREA UNA NUEVA BOLA MAGICAA 
 
    var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8))
-
-	//SE AGREGA EL PACMAN AL TABLERO
-	
-	
-	//SE AGREGA BOLA MAGICA AL TABLERO
-	
-	 game.addVisual(bolaMagica) 
 	
 	// AGREGAR BOLITAS
 	
@@ -110,7 +109,11 @@ program gameW {
 	 	})
 	 }
 	 */
+	//SE AGREGA BOLA MAGICA AL TABLERO
 	
+	 game.addVisual(bolaMagica) 
+	 
+	 //SE AGREGA EL PACMAN AL TABLERO
 	
 	game.addVisual(pacman)
  	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
