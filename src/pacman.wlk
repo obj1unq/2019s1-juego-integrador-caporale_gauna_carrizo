@@ -9,8 +9,8 @@ object pacman {
 	var property puntos = 0
 	var orientacion = arriba
 	var property image = orientacion.image()
-	//var property position = game.origin()
-	var property position = game.at(1,1)
+	var property position = game.origin()
+	//var property position = game.at(0,1)
 	var vidas = 3
 	var property bolitasQueComio = 0
 	
@@ -18,8 +18,8 @@ object pacman {
 		
 	  bolitasQueComio += 1
       if( self.juegoTerminado()){
+      	game.addVisualCharacterIn(final,position)
       	
-      	game.stop()
       }
 	}
 
@@ -68,10 +68,15 @@ object pacman {
 			game.say(self,"perdiste una vida")
 		} else {
 			game.say(self,"perdiste el juego")
-			game.stop()
+			game.clear()
+			 game.addVisualCharacterIn(final,position)
+			 
 			
 		}
 	}
+			
+			
+	
 
 	/*method chocarCon(fantasma) {
 		if (fantasma.fantasmaMalo()) {
@@ -84,8 +89,14 @@ object pacman {
 	}*/
 
 	method juegoTerminado() {
-		return vidas == 0 or self.bolitasQueComio() == 200
+		return vidas == 0 or self.gano()
 	}
+	
+	method gano(){
+		return self.bolitasQueComio()==200
+	}
+	
+	
 
 	method sumarPuntos(comida) {
 		puntos += comida.puntosAlSerComida()
@@ -113,6 +124,23 @@ object pacman {
 		//position = game.origin()
 		position= game.at(1,1)
 	}
+	
+	
+	method agregarFinal(){
+		game.onTick(10000, "final", {game.addVisualCharacterIn(final, position)})
+	}
 
 }
+object final{
+	method image(){
+		return "pacmanJuegoTerminado.png"
+	}
+	
+
+	
+
+	}
+	
+
+
 
