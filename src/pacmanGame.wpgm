@@ -2,7 +2,7 @@ import wollok.game.*
 import fantasmas.*
 import pacman.*
 import comidas.*
-import bolitas.*
+import final.*
 import orientacionPacman.*
 
 program gameW {
@@ -12,6 +12,7 @@ program gameW {
 	game.height(10)
 	game.width(20)
 	game.ground("fondoNegro.png")
+  
   // FANTASMASS 
 
 	var verde = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(2,3))
@@ -19,36 +20,33 @@ program gameW {
 	var violeta = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
 	var rojo = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
 	var verde2 = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde2", position = game.at(7,3))
-	 var amarillo2 = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo2", position = game.at(9,9))
-	 var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(10,5))
-	 var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(11,7) ) 
+	var amarillo2 = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo2", position = game.at(9,9))
+	var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(10,5))
+	var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(11,7) ) 
 	var marron1 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron", position = game.at(3,7))
     var marron2 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron2", position = game.at(18,5))
 	
-	//Comidas
-	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
-	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
-	 var pera1= new Pera(image="pera.png",position= game.at(1,9))
-	 var pera2= new Pera (image= "pera.png",position= game.at(5,2))
+	//COMIDAS
+	
+	var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
+	var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
+	var pera1= new Pera(image="pera.png",position= game.at(1,9))
+	var pera2= new Pera (image= "pera.png",position= game.at(5,2))
 	
 	
     //TECLADOO 
     
-    //keyboard.up().onPressDo { pacman.moverArriba() }
-	//keyboard.down().onPressDo { pacman.moverAbajo() }
-	//keyboard.left().onPressDo { pacman.moverIzquierda() }
-	//keyboard.right().onPressDo { pacman.moverDerecha() }
-  
     keyboard.up().onPressDo { pacman.mover(arriba) }
 	keyboard.down().onPressDo { pacman.mover(abajo) }
 	keyboard.left().onPressDo { pacman.mover(izquierda) }
 	keyboard.right().onPressDo { pacman.mover(derecha) }
   
+    
     //SE CREA UNA NUEVA BOLA MAGICAA 
 
-   var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8))
+   	var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8))
 	
-	// AGREGAR BOLITAS
+	// SE AGREGAN BOLITAS A TODO EL TABLERO
 	
 	var fila = (0..9)
 	var columna = (0..19)
@@ -61,18 +59,11 @@ program gameW {
 	
 	listaBolitas.forEach{num =>  new Bolitas(num, listaPosiciones.get(num))}
 	
-	/*var listaDeBolitas = (0..199).map{bolita => new Bolitas(bolita)}
-	
-	listaDeBolitas.forEach{bolita => game.addVisual(bolita)}*/
-	
 	// LISTA DE COMIDAS
 	
-	 const comidas = [cereza1,cereza2,pera1,pera2]
-	/*
-	 *  Se agregan las comidas al tablero
-	 *  Cuando el pacman toca una comida la come 
-	*/
-	 comidas.forEach{comida =>
+	const comidas = [cereza1,cereza2,pera1,pera2]
+	
+	comidas.forEach{comida =>
 	 	game.addVisual(comida)
 	 }
 	 
@@ -80,36 +71,13 @@ program gameW {
 	
     const  fantasmas = [verde, amarillo, violeta, rojo,rojo2,violeta2,amarillo2,verde2,marron1,marron2]
     
-    /*Pacman come bola magica, y tranforma a todos los fantasmas en fantasmas azules */
-	
-	//game.whenCollideDo(bolaMagica, {pacman => pacman.comeBolitaMagica(bolaMagica,fantasmas)})
-	
-	//
-    /*
-	 *  Se agregan los fantasmas al tablero
-	 *  Cuando el pacman toca un fantasma pierde una vida 
-	*/
-	/*se modifica en game.onTick, la funcion acercarseA(pacman) pasa a acercarseOAlejarseDe(pacman) */
-     fantasmas.forEach{fantasma =>
-     	game.addVisual(fantasma)
-		// game.whenCollideDo(fantasma, { pacman => pacman.chocarCon(fantasma) })
+ 
+    fantasmas.forEach{fantasma =>
+    	game.addVisual(fantasma)
+    	game.whenCollideDo(fantasma, { alguien => alguien.chocarCon(fantasma) })
 		game.onTick(1.randomUpTo(5) * 1000, "Fantasma", {fantasma.acercarseOAlejarse(pacman)})
 	}
 	
-	
-	
-	// se agregan 2 cereaza nuevas para probar la funcion acercarseOAlejarseDe(pacman), igualmente
-	// no funciona... a parte tambien falta poner durante que tiempo los fantasmas huyen de pacman..
-	/*var cereza3= new Cereza(image="bola-de-cristal.png",position= game.at(1,4))
-	 var cereza4= new Cereza(image="bola-de-cristal.png",position= game.at(3,2))
-	 const cerezass = [cereza1,cereza2]
-     cerezass.forEach{cereza => 
-     	game.addVisual(cereza)
-	 	game.whenCollideDo(cereza, {pacman => pacman.comer(comida)
-	 										 fantasmas.forEach{ fantasma=> fantasma.fantasmaMalo(true)}
-	 	})
-	 }
-	 */
 	//SE AGREGA BOLA MAGICA AL TABLERO
 	
 	 game.addVisual(bolaMagica) 

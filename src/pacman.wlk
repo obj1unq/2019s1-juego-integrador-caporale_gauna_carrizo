@@ -1,8 +1,8 @@
 import wollok.game.*
 import fantasmas.*
 import comidas.*
-import bolitas.*
 import orientacionPacman.*
+import final.*
 
 object pacman {
 
@@ -23,44 +23,6 @@ object pacman {
       }
 	}
 
-// Si no sale del tablero se mueve arriba
-	method moverArriba() {
-		if (self.position().up(1).y() < game.height()) {
-			self.position(self.position().up(1))
-			self.image("pacmanBocaArriba.png")
-		}
-	}
-
-// Si no sale del tablero se mueve abajo
-	//method moverAbajo() {
-		//if (self.position().down(1).y() >= 0) {
-			//self.position(self.position().down(1))
-			//self.image("pacmanBocaAbajo.png")
-		//}
-	//}
-
-// Si no sale del tablero se mueve a la derecha
-	//method moverDerecha() {
-		//if (self.position().right(1).x() < game.width()) {
-			//self.position(self.position().right(1))
-			//self.image("pacman.png")
-		//}
-	//}
-
-// Si no sale del tablero se mueve a la izquierda
-	//method moverIzquierda() {
-	//	if (self.position().left(1).x() >= 0) {
-		//	self.position(self.position().left(1))
-		//	self.image("pacmanIzquierda.png")
-	//	}
-//	}
-
-	method perderVida() {
-		vidas -= 1
-	}
-
-	
-
 	method perderVidaSi() {
 		self.perderVida()
 		if (not self.juegoTerminado()) {
@@ -69,24 +31,16 @@ object pacman {
 		} else {
 			game.say(self,"perdiste el juego")
 			game.clear()
-			 game.addVisualCharacterIn(final,position)
+			game.addVisualCharacterIn(final,position)
 			 
 			
 		}
 	}
-			
-			
 	
-
-	/*method chocarCon(fantasma) {
-		if (fantasma.fantasmaMalo()) {
-			self.perderVidaSi()
-		} else {
-			puntos += fantasma.puntosAlSerComido()
-			fantasma.resetPosition()
-			fantasma.transformar()
-		}
-	}*/
+	method perderVida() {
+		vidas -= 1
+	}
+			
 
 	method juegoTerminado() {
 		return vidas == 0 or self.gano()
@@ -103,41 +57,33 @@ object pacman {
 		
 	}
 
-	method objetosEnLaPosicion(_posicion) {
-		game.getObjectsIn(_posicion)
-	}
-
-	//
-	/*method comeBolitaMagica(bolaMagica, fantasmas) {
-		bolaMagica.desaparecer()
-		fantasmas.forEach({ fantasma => fantasma.transformarSiEsMalo()})
-	}*/
-	
-	//prueba direcciones
+	// direcciones
 	
 	method mover(direccion){
 		orientacion=direccion
 		orientacion.mover(self)
 	}
 
+    //reset posicion del pacman cuando choca con un fantasma malo
 	method resetPosition() {
 		//position = game.origin()
 		position= game.at(1,1)
 	}
 	
+		method chocarCon(fantasma){
+		
+	}
+	
+	method objetosEnLaPosicion(_posicion) {    //quienusa esto!!
+		game.getObjectsIn(_posicion)
+	}
+	
+
+	
 	
 
 }
-object final{
-	method image(){
-		return "pacmanJuegoTerminado.png"
-	}
-	
 
-	
-
-	}
-	
 
 
 

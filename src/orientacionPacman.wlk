@@ -1,7 +1,7 @@
 import wollok.game.*
 import fantasmas.*
 import comidas.*
-import bolitas.*
+import final.*
 import pacman.*
 
 
