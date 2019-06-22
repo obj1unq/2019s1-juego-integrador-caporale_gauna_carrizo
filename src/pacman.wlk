@@ -126,9 +126,6 @@ object pacman {
 	}
 	
 	
-	method agregarFinal(){
-		game.onTick(10000, "final", {game.addVisualCharacterIn(final, position)})
-	}
 
 }
 object final{
