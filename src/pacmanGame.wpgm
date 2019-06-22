@@ -18,12 +18,13 @@ program gameW {
     var amarillo = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo", position = game.at(5,6))
 	var violeta = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
 	var rojo = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
-	var verde2 = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(7,3))
-	 var amarillo2 = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo", position = game.at(9,9))
-	 var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(10,5))
-	 var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(11,7) ) 
+	var verde2 = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde2", position = game.at(7,3))
+	 var amarillo2 = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo2", position = game.at(9,9))
+	 var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(10,5))
+	 var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(11,7) ) 
+	var marron1 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron", position = game.at(3,7))
+    var marron2 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron2", position = game.at(18,5))
 	
-
 	//Comidas
 	 var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
 	 var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
@@ -77,7 +78,7 @@ program gameW {
 	 
 	//LISTA DE FANTASMAS
 	
-    const  fantasmas = [verde, amarillo, violeta, rojo,rojo2,violeta2,amarillo2,verde2]
+    const  fantasmas = [verde, amarillo, violeta, rojo,rojo2,violeta2,amarillo2,verde2,marron1,marron2]
     
     /*Pacman come bola magica, y tranforma a todos los fantasmas en fantasmas azules */
 	

@@ -132,7 +132,23 @@ class Fantasma {
 	
 	
     }
-    
-    
-    
-    
+        
+ class FantasmaAleatorio inherits Fantasma{
+ 	
+ 	override method acercarseA(pacman){
+		
+		//var otraPosicion = pacman.position()
+		//var newX = position.x() + if(otraPosicion.x() > position.x()) 1 else -1
+		var newX = 1.randomUpTo(18)
+		var newY = 1.randomUpTo(9)
+		
+		
+		
+		newX = newX.max(0).min(game.width() - 1)
+		newY = newY.max(0).min(game.height() - 1)
+		
+		previousPosition = position
+		position = game.at(newX, newY)
+		
+	}    
+ }   
