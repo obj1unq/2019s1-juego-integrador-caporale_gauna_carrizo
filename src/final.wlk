@@ -1,7 +1,7 @@
 object perdiste{
 	
 	method image(){
-		return "pacmanJuegoTerminado.png"
+		return "pacmanJuegoTerminado_1000x500.png"
 	}
 }
 
@@ -9,6 +9,6 @@ object ganaste{
 	
 	method image(){
 		
-		return "ganaste.png"
+		return "ganaste_1000x500.png"
 	}
 }

@@ -18,13 +18,10 @@ object pacman {
 	var previousPosition = position
 	
 	method comerBolita(){
-		
 	  bolitasQueComio += 1
       if( self.juegoTerminado()){
-      	game.clear()
-      	game.addVisualIn(ganaste,game.center())
-      	
-      }
+      	self.finalizarJuego()
+      	}
 	}
 
 	method perderVidaSi() {
@@ -34,10 +31,7 @@ object pacman {
 			game.say(self,"perdiste una vida")
 		} else {
 			game.say(self,"perdiste el juego")
-			game.clear()
-			game.addVisualIn(perdiste,game.center())
-			 
-			
+			self.finalizarJuego()	
 		}
 	}
 	
@@ -48,6 +42,17 @@ object pacman {
 
 	method juegoTerminado() {
 		return vidas == 0 or self.gano()
+	}
+	method finalizarJuego() {
+		if (vidas == 0){
+			game.clear()
+			game.addVisualIn(perdiste,game.origin())
+			game.onTick(3000, "FIN", {game.stop()})
+		}else {
+			game.clear()
+			game.addVisualIn(ganaste,game.origin())
+			game.onTick(3000, "FIN", {game.stop()})
+		}
 	}
 	
 	method gano(){
