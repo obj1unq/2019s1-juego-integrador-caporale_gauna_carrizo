@@ -5,6 +5,7 @@ import comidas.*
 import final.*
 import orientacionPacman.*
 import pared.*
+import transportador.*
 
 program gameW {
 	
@@ -35,6 +36,9 @@ program gameW {
 	var pera1= new Pera(image="pera.png",position= game.at(1,7))
 	var pera2= new Pera (image= "pera.png",position= game.at(5,2))
 	var pera3= new Pera (image= "pera.png",position= game.at(15,5))
+	
+	
+	
 	
     //TECLADOO 
     
@@ -101,11 +105,19 @@ program gameW {
 	}
 	
 	//SE AGREGA BOLA MAGICA AL TABLERO
-	
-	 game.addVisual(bolaMagica) 
+	 game.addVisual(bolaMagica)
 	 
-	 //SE AGREGA EL PACMAN AL TABLEROO
-	
+	 //TRANSPORTADORES 
+	 var transportadorUno = new TransportadorHorizontal(position = game.at(0, 6))
+	 var transportadorDos = new TransportadorHorizontal(position = game.at(19, 6))
+	 var transportadorTres = new TransportadorVertical(position = game.at(10, 0))
+	 var transportadorCuatro = new TransportadorVertical(position = game.at(10, 9))
+	 game.addVisual(transportadorUno)
+	 game.addVisual(transportadorDos)
+	 game.addVisual(transportadorTres)
+	 game.addVisual(transportadorCuatro)
+	 
+	//SE AGREGA EL PACMAN AL TABLEROO
 	game.addVisual(pacman)
  	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
 
