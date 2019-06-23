@@ -16,12 +16,16 @@ class Pared {
 		position = _position
 	
 	}
+	method chocarCon(alguien){alguien.resetPreviousPosition()}
 	
 	 method chocasteCon(alguien){
 	 	alguien.chocasteConPared()
 	 		
 	 	
-    	}
+    }
+     method chocasteConPacman(pacman, listaFantasmas) {
+     	pacman.resetPreviousPosition()
+     }
 	
 	
 }

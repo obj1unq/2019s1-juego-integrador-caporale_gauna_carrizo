@@ -70,6 +70,7 @@ object pacman {
 	
 	method mover(direccion){
 		orientacion=direccion
+		previousPosition = self.position()
 		orientacion.mover(self)
 	}
 
