@@ -83,7 +83,7 @@ program gameW {
 	
 	 game.addVisual(bolaMagica) 
 	 
-	 //SE AGREGA EL PACMAN AL TABLERO
+	 //SE AGREGA EL PACMAN AL TABLEROO
 	
 	game.addVisual(pacman)
  	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
