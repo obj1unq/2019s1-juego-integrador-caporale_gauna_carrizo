@@ -4,6 +4,7 @@ import pacman.*
 import comidas.*
 import final.*
 import orientacionPacman.*
+import pared.*
 
 program gameW {
 	
@@ -15,23 +16,23 @@ program gameW {
   
   // FANTASMASS 
 
-	var verde = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(2,3))
-    var amarillo = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo", position = game.at(5,6))
-	var violeta = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(4,2))
-	var rojo = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(1,5) ) 
-	var rosa = new Fantasma(imagenOriginal = "fantasmaRosa.png", image = "fantasmaRosa.png", nombre = "Fantasma Rosa", position = game.at(7,3))
-	var naranja = new Fantasma(imagenOriginal = "fantasmaNaranja.png",image = "fantasmaNaranja.png", nombre = "Fantasma Naranja", position = game.at(9,9))
-	var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(10,5))
-	var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(11,7) ) 
-	var marron1 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron", position = game.at(3,7))
-    var marron2 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron2", position = game.at(18,5))
+	var verde = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(8,5))
+    var amarillo = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo", position = game.at(9,5))
+	var violeta = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(10,5))
+	var rojo = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(11,5) ) 
+	var rosa = new Fantasma(imagenOriginal = "fantasmaRosa.png", image = "fantasmaRosa.png", nombre = "Fantasma Rosa", position = game.at(12,5))
+	var naranja = new Fantasma(imagenOriginal = "fantasmaNaranja.png",image = "fantasmaNaranja.png", nombre = "Fantasma Naranja", position = game.at(8,4))
+	var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(9,4))
+	var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(10,4)) 
+	var marron1 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron", position = game.at(11,4))
+    var marron2 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron2", position = game.at(12,4))
 	
 	//COMIDAS
 	
 	var cereza1= new Cereza(image="cereza.png",position= game.at(11,1))
 	var cereza2= new Cereza(image="cereza.png",position= game.at(7,6))
-	var cereza3= new Cereza(image="cereza.png",position= game.at(18,4))
-	var pera1= new Pera(image="pera.png",position= game.at(1,9))
+	var cereza3= new Cereza(image="cereza.png",position= game.at(5,4))
+	var pera1= new Pera(image="pera.png",position= game.at(1,7))
 	var pera2= new Pera (image= "pera.png",position= game.at(5,2))
 	var pera3= new Pera (image= "pera.png",position= game.at(15,5))
 	
@@ -47,18 +48,38 @@ program gameW {
 
    	var bolaMagica = new BolaMagica(image = "bola-de-cristal.png", position = game.at(7,8))
 	
-	// SE AGREGAN BOLITAS A TODO EL TABLERO
+	// SE AGREGAN BOLITAS Al TABLERO
 	
-	var fila = (0..9)
-	var columna = (0..19)
+	var fila = (1..8)
+	var columna = (1..18)
 	
 	var listaPosiciones = []
 	
 	fila.forEach{f => columna.forEach{c => listaPosiciones.add(new Position(c,f))}}
 	
-	var listaBolitas = (0..199)
+	var listaBolitas = (0..143)
 	
 	listaBolitas.forEach{num =>  new Bolitas(num, listaPosiciones.get(num))}
+	
+	
+	//Agregar paredes//
+	
+	var listaPosicionPared =[]
+	var columnas = [0,19]
+	var filass = [0,9]
+	
+	(0..5).forEach{fi => columnas.forEach{co =>listaPosicionPared.add(new Position(co,fi))}}
+	(7..9).forEach{fi => columnas.forEach{co =>listaPosicionPared.add(new Position(co,fi))}}
+	(0..9).forEach{col => filass.forEach{fil => listaPosicionPared.add(new Position(col,fil))}}
+	(11..19).forEach{col => filass.forEach{fil => listaPosicionPared.add(new Position(col,fil))}}
+	 
+	
+	var listaParedes = (0..53)
+	var paredes =[]
+	listaParedes.forEach{num =>  paredes.add(new Pared(num, listaPosicionPared.get(num)))}
+	paredes.forEach{pared =>
+	 	game.addVisual(pared)
+	 }
 	
 	// LISTA DE COMIDAS
 	
