@@ -18,7 +18,8 @@ object pacman {
 		
 	  bolitasQueComio += 1
       if( self.juegoTerminado()){
-      	game.addVisualCharacterIn(final,position)
+      	game.clear()
+      	game.addVisualIn(ganaste,game.center())
       	
       }
 	}
@@ -31,7 +32,7 @@ object pacman {
 		} else {
 			game.say(self,"perdiste el juego")
 			game.clear()
-			game.addVisualCharacterIn(final,position)
+			game.addVisualIn(perdiste,game.center())
 			 
 			
 		}
