@@ -6,6 +6,7 @@ import final.*
 import orientacionPacman.*
 import pared.*
 import transportador.*
+import puntaje.*
 
 program gameW {
 	
@@ -120,6 +121,13 @@ program gameW {
 	//SE AGREGA EL PACMAN AL TABLEROO
 	game.addVisual(pacman)
  	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
-
+ 	
+ 	//////////////CARTEL CONTADOR DE PUNTOS/////////////////////////////
+ 	var puntos = new CartelPuntos()
+ 	game.addVisual(puntos)
+	var m = new Marcador(5, game.at(5,9))
+	m.construirHojas()
+	m.hojas().forEach{h => game.addVisual(h)}
+	game.onTick(30, "puntos", {m.actualizarHojas()})
 	game.start()
 }

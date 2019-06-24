@@ -56,7 +56,7 @@ class Pera inherits Comidas{
 		pacman.comerBolita()
  	}
 	
-	 method puntosAlSerComida() = 50
+	 method puntosAlSerComida() = 40
 	
 }
 	
