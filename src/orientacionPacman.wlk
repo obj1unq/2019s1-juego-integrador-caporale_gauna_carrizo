@@ -5,8 +5,7 @@ import final.*
 import pacman.*
 
 
-class OrientacionPacman {
-	
+class OrientacionPacman {	
 	var bocaCerrada = true
 	method imagenBocaCerrada() =""
 	method imagenBocaAbierta()=""

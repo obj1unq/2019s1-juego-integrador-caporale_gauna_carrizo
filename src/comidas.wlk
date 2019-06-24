@@ -6,7 +6,7 @@ class Comidas{
 	var property position
 	var property image
 	
-	
+
 	method desaparecer(){
 		game.removeVisual(self)
 	}

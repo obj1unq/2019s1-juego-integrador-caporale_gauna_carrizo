@@ -62,7 +62,6 @@ object pacman {
 		vidas -= 1
 	}
 			
-
 	method juegoTerminado() {
 		return vidas == 0 or self.gano()
 	}
@@ -101,7 +100,7 @@ object pacman {
 
     //reset posicion del pacman cuando choca con un fantasma malo
 	method resetPosition() {
-		//position = game.origin()
+		
 		position= game.at(1,1)
 	}
 	
@@ -109,10 +108,7 @@ object pacman {
 		
 	}
 	
-//	method objetosEnLaPosicion(_posicion) {    
-//		game.getObjectsIn(_posicion)
-//	}
-	
+
 	// choca con pared
 	
 	

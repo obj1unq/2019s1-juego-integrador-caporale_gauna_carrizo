@@ -8,6 +8,7 @@ import pared.*
 import transportador.*
 import puntaje.*
 
+
 program gameW {
 	
   // CONFIG	

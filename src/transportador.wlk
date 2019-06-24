@@ -4,8 +4,7 @@ class Transportador {
 	var posicionTraslado
 	var property image = "transportador.png"
 	method chocasteConPacman(pacman, fantasmas){pacman.position(posicionTraslado)}
-	method chocarCon(fantasma){}
-	
+	method chocarCon(fantasma){}	
 }
 //class Transportador1 inherits Transportador {
 //	override method chocasteConPacman(pacman, fantasmas) {

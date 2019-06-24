@@ -5,6 +5,7 @@ import comidas.*
 import final.*
 import orientacionPacman.*
 
+
 class Pared {
 	
 	var property image = "pared.png"

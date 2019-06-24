@@ -5,7 +5,6 @@ object perdiste{
 		return "pacmanJuegoTerminado_1000x500.png"
 	}
 }
-
 object ganaste{
 	
 	method image(){

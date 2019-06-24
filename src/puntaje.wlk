@@ -65,6 +65,7 @@ class Hoja {
 		return parteDelMarcador.cantidadDeCifras()
 	}
 }
+
 class CartelImagen {
 	var property image = "otroPacDerechaAbierto.png"
 	var property position = game.at(15, 9)

@@ -2,7 +2,6 @@ import wollok.game.*
 import pacman.*
 import pared.*
 
-
 class Fantasma {
 	var property imagenOriginal
 	var property image
