@@ -109,10 +109,10 @@ program gameW {
 	 game.addVisual(bolaMagica)
 	 
 	 //TRANSPORTADORES 
-	 var transportadorUno = new TransportadorHorizontal(position = game.at(0, 6))
-	 var transportadorDos = new TransportadorHorizontal(position = game.at(19, 6))
-	 var transportadorTres = new TransportadorVertical(position = game.at(10, 0))
-	 var transportadorCuatro = new TransportadorVertical(position = game.at(10, 9))
+	 var transportadorUno = new Transportador(position = game.at(0, 6), posicionTraslado = game.at(18,6))
+	 var transportadorDos = new Transportador(position = game.at(19, 6), posicionTraslado = game.at(1,6))
+	 var transportadorTres = new Transportador(position = game.at(10, 0), posicionTraslado = game.at(10,8))
+	 var transportadorCuatro = new Transportador(position = game.at(10, 9), posicionTraslado = game.at(10,1))
 	 game.addVisual(transportadorUno)
 	 game.addVisual(transportadorDos)
 	 game.addVisual(transportadorTres)
@@ -129,5 +129,14 @@ program gameW {
 	m.construirHojas()
 	m.hojas().forEach{h => game.addVisual(h)}
 	game.onTick(30, "puntos", {m.actualizarHojas()})
+	///////////////////////////////////////Cartel de Vidas////////////////////////////////////////
+	var cartelVida = new CartelImagen()
+	game.addVisual(cartelVida)
+	
+	var vidas = new Vida(1, game.at(16,9))
+	vidas.construirHojas()
+	vidas.hojas().forEach{v => game.addVisual(v)}
+	game.onTick(30, "puntos", {vidas.actualizarHojas()})
+	
 	game.start()
 }

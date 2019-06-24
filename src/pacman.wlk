@@ -9,21 +9,44 @@ object pacman {
 
 	var property puntos = 0
 	var orientacion = arriba
-	var property image = orientacion.image()
-	//var property position = game.origin()
+	
 	var property position = game.at(1,1)
-	var vidas = 3
+	var property vidas = 3
 	var property bolitasQueComio = 0
 	// se agrega para pared
 	var previousPosition = position
+	var vidasGanadas = 0
 	
+	 method image() = orientacion.image()
+	    
+ 
 	method comerBolita(){
 	  bolitasQueComio += 1
       if( self.juegoTerminado()){
       	self.finalizarJuego()
       	}
 	}
+	
+	method ganarVida(){
+		
+		vidas += 1	
+	}
+	
+	method ganarVidas(){
+		
+	  if(puntos > 3500 and vidasGanadas == 0){
+			
+			self.ganarVida()
+			vidasGanadas += 1
+			
+		}else if (puntos > 7000 and vidasGanadas == 1){
+			
+			self.ganarVida()
+			vidasGanadas += 1
+		}
+	}
 
+ 
 	method perderVidaSi() {
 		self.perderVida()
 		if (not self.juegoTerminado()) {
@@ -63,15 +86,17 @@ object pacman {
 
 	method sumarPuntos(comida) {
 		puntos += comida.puntosAlSerComida()
+		self.ganarVidas()
 		
 	}
 
 	// direcciones
 	
 	method mover(direccion){
+		
 		orientacion=direccion
 		previousPosition = self.position()
-		orientacion.mover(self)
+		direccion.mover(self)
 	}
 
     //reset posicion del pacman cuando choca con un fantasma malo
@@ -84,9 +109,9 @@ object pacman {
 		
 	}
 	
-	method objetosEnLaPosicion(_posicion) {    //quienusa esto!!
-		game.getObjectsIn(_posicion)
-	}
+//	method objetosEnLaPosicion(_posicion) {    
+//		game.getObjectsIn(_posicion)
+//	}
 	
 	// choca con pared
 	

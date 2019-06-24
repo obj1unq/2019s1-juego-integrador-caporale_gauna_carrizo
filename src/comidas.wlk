@@ -50,9 +50,7 @@ class Pera inherits Comidas{
  	}
  	
  	override method chocasteConPacman(pacman, listaFantasmas){
- 		
- 		self.desaparecer()
-		pacman.sumarPuntos(self)
+ 		super(pacman, listaFantasmas)
 		pacman.comerBolita()
  	}
 	

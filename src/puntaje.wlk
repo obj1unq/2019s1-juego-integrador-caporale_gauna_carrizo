@@ -4,8 +4,8 @@ import comidas.*
 import pared.*
 
 
-class Marcador {
-	var puntaje = 0
+class Cartel {
+	var entrada = 0
 	var property cantidadDeCifras
 	var property posicionInicial
 	var property hojas = []
@@ -17,20 +17,34 @@ class Marcador {
 		(0..(cantidadDeCifras -1)).forEach{num => hojas.add(new Hoja(self,num))}	
 	}
 	method actualizarHojas(){
-		self.actualizarPuntaje()
+		self.actualizarEntrada()
 		var count = 0
 		hojas.forEach{hoja => 
 			
-			if(hoja.position().x() - posicionInicial.x() >= cantidadDeCifras - puntaje.toString().size()){
-				hoja.image((puntaje.toString().charAt(count))+".png")
+			if(hoja.position().x() - posicionInicial.x() >= cantidadDeCifras - entrada.toString().size()){
+				hoja.image((entrada.toString().charAt(count))+".png")
 				count = count + 1
 			}
 		}
 	}
-	method actualizarPuntaje() { puntaje = pacman.puntos()}
-	method puntaje() = puntaje
+	method actualizarEntrada() { }
+
 	method chocasteConPacman(pacman, fantasmas) {}
 	method chocarCon(fantasma){}
+}
+
+class Marcador inherits Cartel{
+
+		override method actualizarEntrada() { entrada = pacman.puntos()}
+}
+
+class Vida inherits Cartel{
+
+	override method actualizarEntrada() { entrada = pacman.vidas()}
+	
+	
+	
+	
 }
 class Hoja {
 	var parteDelMarcador
@@ -51,7 +65,14 @@ class Hoja {
 		return parteDelMarcador.cantidadDeCifras()
 	}
 }
+class CartelImagen {
+	var property image = "otroPacDerechaAbierto.png"
+	var property position = game.at(15, 9)
+	method chocasteConPacman(pacman, fantasmas) {}
+	method chocarCon(alguien){}
+}
 class CartelPuntos {
+	
 	var property image = "CartelPuntos.png"
 	var property position = game.at(0, 9)
 	method chocasteConPacman(pacman, fantasmas) {}
