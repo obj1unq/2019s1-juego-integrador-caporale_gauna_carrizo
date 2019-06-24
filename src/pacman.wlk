@@ -16,6 +16,7 @@ object pacman {
 	var property bolitasQueComio = 0
 	// se agrega para pared
 	var previousPosition = position
+	var vidasGanadas = 0
 	
 	method comerBolita(){
 	  bolitasQueComio += 1
@@ -38,6 +39,22 @@ object pacman {
 	method perderVida() {
 		vidas -= 1
 	}
+	method ganarVida(){
+		vidas +=1
+	}
+	method ganarVidas(){
+		if (puntos >= 3500 and vidasGanadas == 0){
+			self.ganarVida()
+			vidasGanadas += 1
+			
+			game.say(self,"ganaste una vida")
+		}
+		else if(puntos >= 7000 and vidasGanadas == 1){
+			self.ganarVida()
+			vidasGanadas += 1
+			game.say(self,"ganaste una vida")
+		}
+	}
 			
 
 	method juegoTerminado() {
@@ -56,13 +73,14 @@ object pacman {
 	}
 	
 	method gano(){
-		return self.bolitasQueComio()==133
+		return self.bolitasQueComio()==144
 	}
 	
 	
 
 	method sumarPuntos(comida) {
 		puntos += comida.puntosAlSerComida()
+		self.ganarVidas()
 		
 	}
 
