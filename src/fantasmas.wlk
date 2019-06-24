@@ -135,3 +135,19 @@ class Fantasma {
 	}    
  }   
 
+class FantasmaCamuflado inherits Fantasma{
+ 	
+ 	override method transformar() { 
+		if (self.fantasmaMalo()){
+			self.image("fantasmaAzul.png")
+			fantasmaMalo = not fantasmaMalo
+		}
+		
+	}
+		
+	override method volverAMalo(){
+		//self.image(imagenOriginal)
+		self.fantasmaMalo(true)
+	}
+	
+}

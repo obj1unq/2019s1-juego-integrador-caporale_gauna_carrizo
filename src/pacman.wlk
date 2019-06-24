@@ -56,7 +56,7 @@ object pacman {
 	}
 	
 	method gano(){
-		return self.bolitasQueComio()==144
+		return self.bolitasQueComio()==133
 	}
 	
 	
