@@ -81,4 +81,3 @@ class Pera inherits Comidas{
   }
 	
 
-	

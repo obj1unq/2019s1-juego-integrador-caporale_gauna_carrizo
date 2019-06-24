@@ -1,3 +1,4 @@
+    
 object perdiste{
 	
 	method image(){
@@ -12,3 +13,4 @@ object ganaste{
 		return "ganaste_1000x500.png"
 	}
 }
+

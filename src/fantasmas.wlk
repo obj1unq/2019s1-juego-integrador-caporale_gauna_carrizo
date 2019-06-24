@@ -56,8 +56,8 @@ class Fantasma {
 		
 		//EVITAR QUE SE POSICIONEN FUERA DEL TABLERO
 		
-		newX = newX.max(1).min(game.width() - 1)
-		newY = newY.max(1).min(game.height() - 1)
+		newX = newX.max(0).min(game.width() - 1)
+		newY = newY.max(0).min(game.height() - 1)
 		
 		previousPosition = position
 		position = game.at(newX, newY)
@@ -71,8 +71,8 @@ class Fantasma {
 		var newY = position.y() +  if(otraPosicion.y() > position.y()) -1 else 1
 		
 
-		newX = newX.max(1).min(game.width() - 1)
-		newY = newY.max(1).min(game.height() - 1)
+		newX = newX.max(0).min(game.width() - 1)
+		newY = newY.max(0).min(game.height() - 1)
 		
 		previousPosition = position
 		position = game.at(newX, newY)
@@ -134,20 +134,3 @@ class Fantasma {
 		
 	}    
  }   
-
-class FantasmaCamuflado inherits Fantasma{
- 	
- 	override method transformar() { 
-		if (self.fantasmaMalo()){
-			self.image("fantasmaAzul.png")
-			fantasmaMalo = not fantasmaMalo
-		}
-		
-	}
-		
-	override method volverAMalo(){
-		//self.image(imagenOriginal)
-		self.fantasmaMalo(true)
-	}
-	
-}

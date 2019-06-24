@@ -77,3 +77,4 @@ object izquierda inherits OrientacionPacman{
 	
 	
 
+

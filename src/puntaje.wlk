@@ -58,4 +58,3 @@ class CartelPuntos {
 	method chocarCon(alguien){}
 	
 }
-
