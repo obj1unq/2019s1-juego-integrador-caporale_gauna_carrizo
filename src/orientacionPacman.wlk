@@ -7,8 +7,8 @@ import pacman.*
 
 class OrientacionPacman {	
 	var bocaCerrada = true
-	method imagenBocaCerrada() =""
-	method imagenBocaAbierta()=""
+	method imagenBocaCerrada() 
+	method imagenBocaAbierta()
 	method mover(_pacman){ bocaCerrada = not bocaCerrada}
 	method image() {
 		if (bocaCerrada) {

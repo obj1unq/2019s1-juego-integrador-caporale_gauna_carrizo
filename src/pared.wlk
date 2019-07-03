@@ -31,6 +31,9 @@ class Pared {
 	
 }
 
+// ESTO SI SE COMENTA, LO DE HORIZONTAL Y VERTICAL SIGUE FUNCIONANDO EL JUEGO. 
+// PARA QUE SE USA
+
 class Horizontal inherits Pared{
 	
 }

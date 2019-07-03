@@ -22,12 +22,15 @@ class Fantasma {
 	}
 	
 	
-	method transformarSiEsMalo() {
+ 	method transformarSiEsMalo() {
 		if (self.fantasmaMalo()){
 			self.transformar()
 			self.volverDespuesDeUnTiempo()
 		}
-	}
+		
+		
+		}
+	
 	
 	method resetPosition(){
 		
