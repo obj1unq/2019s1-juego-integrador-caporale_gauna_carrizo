@@ -3,22 +3,32 @@ import pacman.*
 import pared.*
 
 class Fantasma {
-	var property imagenOriginal
-	var property image
-	var property nombre
+	
+	var numeroFantasma 	
 	var property position
 	var previousPosition = position
 	var property puntosAlSerComida=200
 	var property fantasmaMalo = true  // indentifica conduta de pacman 
 	
-	method transformar() { 
-		if (self.fantasmaMalo()){
-			self.image("fantasmaAzul.png")
-			fantasmaMalo = not fantasmaMalo
+	
+	method image(){
+		
+		if (not self.fantasmaMalo()){
+			
+			return "fantasma3.png"
+
 		}else {
-			self.image(imagenOriginal)
-			fantasmaMalo = not fantasmaMalo
+			
+			return "fantasma" + numeroFantasma.toString() + ".png"
+			
 		}
+	}
+	
+	method transformar(){
+		
+		self.image()
+	    fantasmaMalo = not fantasmaMalo
+		
 	}
 	
 	
@@ -108,7 +118,7 @@ class Fantasma {
 	
 	
 	method volverAMalo(){
-		self.image(imagenOriginal)
+		self.image()
 		self.fantasmaMalo(true)
 	}
 	

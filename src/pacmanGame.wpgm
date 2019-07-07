@@ -19,16 +19,18 @@ program gameW {
   
   // FANTASMASS 
 
-	var verde = new Fantasma(imagenOriginal = "fantasmaVerde.png", image = "fantasmaVerde.png", nombre = "Fantasma Verde", position = game.at(8,5))
-    var amarillo = new Fantasma(imagenOriginal = "fantasmaAmarillo.png",image = "fantasmaAmarillo.png", nombre = "Fantasma Amarrillo", position = game.at(9,5))
-	var violeta = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta", position = game.at(10,5))
-	var rojo = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo", position = game.at(11,5) ) 
-	var rosa = new Fantasma(imagenOriginal = "fantasmaRosa.png", image = "fantasmaRosa.png", nombre = "Fantasma Rosa", position = game.at(12,5))
-	var naranja = new Fantasma(imagenOriginal = "fantasmaNaranja.png",image = "fantasmaNaranja.png", nombre = "Fantasma Naranja", position = game.at(8,4))
-	var violeta2 = new Fantasma(imagenOriginal = "fantasmaVioleta.png",image = "fantasmaVioleta.png", nombre = "Fantasma Violeta2", position = game.at(9,4))
-	var rojo2 = new Fantasma(imagenOriginal = "fantasmaRojo.png",image = "fantasmaRojo.png", nombre = "Fantasma Rojo2", position = game.at(10,4)) 
-	var marron1 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron", position = game.at(11,4))
-    var marron2 = new FantasmaAleatorio (imagenOriginal = "fantasmaAleatorio.png",image = "fantasmaAleatorio.png", nombre = "Fantasma Marron2", position = game.at(12,4))
+	var verde = new Fantasma(numeroFantasma = 7, position = game.at(8,5))
+    var amarillo = new Fantasma(numeroFantasma = 2, position = game.at(9,5))
+	var violeta = new Fantasma(numeroFantasma = 8, position = game.at(10,5))
+	var rojo = new Fantasma(numeroFantasma = 5, position = game.at(11,5) ) 
+	var rosa = new Fantasma(numeroFantasma = 6, position = game.at(12,5))
+	var naranja = new Fantasma(numeroFantasma = 4, position = game.at(8,4))
+	var violeta2 = new Fantasma(numeroFantasma = 8, position = game.at(9,4))
+	var rojo2 = new Fantasma(numeroFantasma = 5, position = game.at(10,4)) 
+	var marron1 = new FantasmaAleatorio (numeroFantasma = 1, position = game.at(11,4))
+    var marron2 = new FantasmaAleatorio (numeroFantasma = 1, position = game.at(12,4))
+	
+	
 	
 	//COMIDAS
 	
