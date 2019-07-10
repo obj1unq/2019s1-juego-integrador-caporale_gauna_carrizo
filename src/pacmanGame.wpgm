@@ -126,20 +126,17 @@ program gameW {
  	game.whenCollideDo(pacman, {algo => algo.chocasteConPacman(pacman, fantasmas)})
  	
  	//////////////CARTEL CONTADOR DE PUNTOS/////////////////////////////
- 	var puntos = new CartelPuntos()
+ 	var puntos = new GraficaParaCartel("CartelPuntos.png",game.at(0, 9))
  	game.addVisual(puntos)
 	var m = new Marcador(5, game.at(5,9))
-	m.construirHojas()
-	m.hojas().forEach{h => game.addVisual(h)}
-	game.onTick(30, "puntos", {m.actualizarHojas()})
-	///////////////////////////////////////Cartel de Vidas////////////////////////////////////////
-	var cartelVida = new CartelImagen()
-	game.addVisual(cartelVida)
+	m.agregarHojaSiFalta()
+	game.onTick(1000, "puntos", {m.agregarHojaSiFalta()})
 	
+	///////////////////////////////////////Cartel de Vidas////////////////////////////////////////
+	var cartelVida = new GraficaParaCartel("otroPacDerechaAbierto.png",game.at(15, 9))
+	game.addVisual(cartelVida)
 	var vidas = new Vida(1, game.at(16,9))
-	vidas.construirHojas()
-	vidas.hojas().forEach{v => game.addVisual(v)}
-	game.onTick(30, "puntos", {vidas.actualizarHojas()})
+	vidas.agregarHojaSiFalta()
 	
 	game.start()
 }
